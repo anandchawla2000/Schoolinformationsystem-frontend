@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@300;600&family=Source+Sans+Pro:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@300;600&family=Libre+Baskerville&family=Source+Sans+Pro:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase&family=Libre+Baskerville&family=Source+Sans+Pro:ital@1&display=swap');
+
+.nav1
+{
+    background-color:transparent;
+}
+
+#navitem1
+{
+    font-size: 20px;
+    font-family: 'Cormorant Unicase', serif;
+    color: black;
+}
+
+.navitem2
+{
+    color: rgb(156, 131, 99);
+}
+
+#brand1
+{
+    color:black;
+    font-family: 'Cormorant Unicase', serif;
+    font-size: 29px;
+}
+
+#navitem1:hover{
+  color:orangered;
+  
+}
+
+#headigdata
+{
+    color:black;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-family: 'Cormorant Unicase', serif;
+font-family: 'Source Sans Pro', sans-serif;
+top:3%;
+}
+
+#heading1
+{
+    font-family: 'Libre Baskerville', serif;
+}
+
+#heading2
+{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#heading2:hover{
+    color:orangered;
+    
+  }
