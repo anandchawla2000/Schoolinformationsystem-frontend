@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Nav from './Component/Nav';
-import Add from '../src/Component/MainComponent/Add';
-
+import { BrowserRouter } from 'react-router-dom';
+import '../src/Component/Files/file.css'
 ReactDOM.render(
   <>
-    <Add/>
+  <BrowserRouter>
+    <App/>
+    </BrowserRouter>
   </>,
   document.getElementById('root')
 );

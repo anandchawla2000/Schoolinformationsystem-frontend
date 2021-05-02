@@ -1,9 +1,11 @@
 import React from 'react';
+import Mainnav from './Component/MainComponent/Mainnav';
+import Reception from './Component/MainComponent/Reception';
 
 function App() {
   return (
-    < >
-     <h1>Hello</h1> 
+    <>
+    <Mainnav/>
     </>
   );
 }
