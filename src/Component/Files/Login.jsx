@@ -38,11 +38,14 @@ const Login = () => {
             else if(response.data.type==="Student")
             {  dispatch({type:"Admin",payload:"Studentlogin"})
               const stuid=response.data.data[0].admissionid;
+              localStorage.setItem('stuid', stuid);
               history.push('/information');
             }
             else if(response.data.type==="teacher")
             { dispatch({type:"Admin",payload:"teacherlogin"})
-              const teacid=response.data.data[0].admissionid;
+              console.log(response.data.data[0].admissionid);
+              const teacid=response.data.data[0].id;
+              localStorage.setItem('teacid', teacid);
               history.push('/profile');
             }
           },

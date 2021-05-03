@@ -5,8 +5,7 @@ import { baseUrl } from "./base";
 import Modal from "./Modal";
 const ProfileTeacher = () => {
   const [Id, setId] = useState();
-  const Card=(props)=>
-  {
+  const Card = (props) => {
     return (
       <>
         <div class="col-sm-1 col-xl-4 col-l-3 col-md-4 mt-4 ">
@@ -14,15 +13,18 @@ const ProfileTeacher = () => {
             <div class="card-body">
               <h5 class="card-title">Student Name : {props.studentname}</h5>
               <p class="card-text">
-               <p>Admisson id: {props.admissionid}</p>
-               <p>Date of birth: {props.dob}</p>
+                <p>Admisson id: {props.admissionid}</p>
+                <p>Date of birth: {props.dob}</p>
               </p>
               <div class="text-center">
                 <button
                   class="btn btn-btn btn-success"
                   data-toggle="modal"
                   data-target="#exampleModal"
-                onClick={()=>{setId(props.admissionid)}}>
+                  onClick={() => {
+                    setId(props.admissionid);
+                  }}
+                >
                   Update Details
                 </button>
               </div>
@@ -31,10 +33,11 @@ const ProfileTeacher = () => {
         </div>
       </>
     );
-  }
-  
+  };
+
   useEffect(() => {
-    axios.get(`${baseUrl}/details/2`).then(
+    const id = localStorage.getItem("teacid");
+    axios.get(`${baseUrl}/details/${id}`).then(
       (response) => {
         setinfo(response);
       },
