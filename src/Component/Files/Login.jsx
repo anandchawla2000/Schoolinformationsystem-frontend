@@ -5,92 +5,124 @@ import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { reducer } from "../Files/Reducer";
 import { contextUser } from "../MainComponent/Mainnav";
 import { baseUrl } from "./base";
+import { ToastContainer, toast } from "react-toastify";
+import "../../../node_modules/react-toastify/dist/ReactToastify.css";
+import "./design.css";
+
 const Login = () => {
   const history = useHistory();
   const [String, SetString] = useState({});
   const { state, dispatch } = useContext(contextUser);
   const [login, fulllogin] = useState({});
-  const onSubmits = async(event) => {
+
+  //onSubmit verify details admin or call axios
+  const onSubmits = async (event) => {
     event.preventDefault();
-    if(login.email==="anand@admin.com"&&login.password==="owner")
-    {
-      dispatch({type:"Admin",payload:"Adminlogin"})
-      history.push('/addteacher');
+    //Check adim details
+    if (login.email === "anand@admin.com" && login.password === "owner") {
+      dispatch({ type: "Admin", payload: "Adminlogin" });
+      history.push("/addteacher");
+    } else {
+      loginapi();
     }
-    else{
-    loginapi(); }
   };
+
+  //Axios Call
   function loginapi() {
-        axios
-        .get(`${baseUrl}/sign/`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          params: { email: login.email, password: login.password },
-        }).then(
-          (response) => {
-            console.log(response.data.type);
-            if(response.data.type==="khali")
-            {
-               alert("wrong details");
-            }
-            else if(response.data.type==="Student")
-            {  dispatch({type:"Admin",payload:"Studentlogin"})
-              const stuid=response.data.data[0].admissionid;
-              localStorage.setItem('stuid', stuid);
-              history.push('/information');
-            }
-            else if(response.data.type==="teacher")
-            { dispatch({type:"Admin",payload:"teacherlogin"})
-              console.log(response.data.data[0].admissionid);
-              const teacid=response.data.data[0].id;
-              localStorage.setItem('teacid', teacid);
-              history.push('/profile');
-            }
-          },
-          (error) => {
-            alert("something Wrong");
+    axios
+      .get(`${baseUrl}/sign/`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        params: { email: login.email, password: login.password },
+      })
+      .then(
+        (response) => {
+          console.log(response.data.type);
+          if (response.data.type === "khali") {
+            toast.error("Invalid credentials", {
+              position: "top-right",
+              autoClose: 1500,
+              hideProgressBar: true,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+          } else if (response.data.type === "Student") {
+            dispatch({ type: "Admin", payload: "Studentlogin" });
+            const stuid = response.data.data;
+            localStorage.setItem("stuid", stuid);
+            history.push("/information");
+          } else if (response.data.type === "teacher") {
+            dispatch({ type: "Admin", payload: "teacherlogin" });
+            console.log(response.data);
+            const teacid = response.data.data[0].classall;
+            localStorage.setItem("teacid", teacid);
+            history.push("/profile");
           }
-        );
+        },
+        (error) => {
+          //alert("something Wrong");
+          toast.error("Server Down!", {
+            position: "top-right",
+            autoClose: 1500,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+      );
   }
+
+  // Login Form
   return (
     <>
-      <div class="container mt-3">
-        <div class="card">
-          <div class="card-body">
-            <div class="container">
-              <h2 class="text-center">Enter Login Details:</h2>
-              <form onSubmit={onSubmits}>
-                <div class="form-group">
+      <div className="container mt-4 custo">
+        <div className="card">
+          <div className="card-body">
+            <div className="container">
+              <h2 className="text-center">Enter Login Details:</h2>
+              <form
+                className="needs-validation"
+                onSubmit={onSubmits}
+                novalidate
+              >
+                <div className="form-group">
                   <label for="examplename">Email:</label>
                   <input
                     type="email"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Email"
                     id="email"
                     onChange={(e) => {
                       fulllogin({ ...login, email: e.target.value });
                     }}
+                    required
                   />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                   <label for="examplename">Password</label>
                   <input
                     type="password"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Enter password"
                     id="password"
                     onChange={(e) => {
                       fulllogin({ ...login, password: e.target.value });
                     }}
+                    required
                   />
                 </div>
-                <div class="container">
-                  <div class="text-center">
-                    <button type="submit" class="btn btn-success">
+                <div className="container">
+                  <div className="text-center">
+                    <button type="submit" className="btn btn-success">
                       Login
                     </button>
+                    <ToastContainer />
                   </div>
                 </div>
               </form>

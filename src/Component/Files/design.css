@@ -1,59 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@300;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@300;600&family=Source+Sans+Pro:ital@1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@300;600&family=Libre+Baskerville&family=Source+Sans+Pro:ital@1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase&family=Libre+Baskerville&family=Source+Sans+Pro:ital@1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pattaya&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
 
-.nav1
-{
-    background-color:transparent;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-#navitem1
-{
-    font-size: 20px;
-    font-family: 'Cormorant Unicase', serif;
-    color: black;
+.feat {
+  border-style: none;
+  display: flex;
 }
 
-.navitem2
-{
-    color: rgb(156, 131, 99);
+.custo {
+  width: fit-content;
 }
 
-#brand1
-{
-    color:black;
-    font-family: 'Cormorant Unicase', serif;
-    font-size: 29px;
+.navcolor {
+  background-color: #8ec5fc;
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
 }
 
-#navitem1:hover{
-  color:orangered;
-  
+#allbg {
+  background-color: #8ec5fc;
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
 }
 
-#headigdata
-{
-    color:black;
-    margin-top: auto;
-    margin-bottom: auto;
-    font-family: 'Cormorant Unicase', serif;
-font-family: 'Source Sans Pro', sans-serif;
-top:3%;
+.benfitshead {
+  font-size: 25px;
+  font-weight: 550;
 }
 
-#heading1
-{
-    font-family: 'Libre Baskerville', serif;
+.bannerhead {
+  font-family: "Pattaya", sans-serif;
 }
 
-#heading2
-{
-    font-family: 'Source Sans Pro', sans-serif;
+.hd {
+  font-size: 25px;
+  font-weight: 550;
 }
 
-#heading2:hover{
-    color:orangered;
-    
-  }
+.card.hover,
+.card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.img {
+  margin-bottom: 35px;
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
+}
+
+.card-title {
+  font-weight: 600;
+}
+
+button.focus,
+button:focus {
+  outline: 0;
+  box-shadow: none !important;
+}
+
+.rck {
+  margin-top: 20px;
+  padding-bottom: 15px;
+}
+
+.headindadd{
+  font-family: 'Roboto', sans-serif;
+}
